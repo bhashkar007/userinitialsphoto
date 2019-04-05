@@ -1,0 +1,43 @@
+{
+    "name": "hashtagerrors/user-initials-photo",
+    "description": "A plugin to assign profile picture of user with their name initials.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "user initials photo"
+    ],
+    "support": {
+        "docs": "https://github.com/hashtagerror/user-initials-photo/blob/master/README.md",
+        "issues": "https://github.com/hashtagerror/user-initials-photo/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hashtag Errors",
+            "homepage": "http://www.hashtagerrors.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "hashtagerrors\\userinitialsphoto\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "User Initials Photo",
+        "handle": "user-initials-photo",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/hashtagerror/user-initials-photo/master/CHANGELOG.md",
+        "components": {
+            "userInitialsPhotoService": "hashtagerrors\\userinitialsphoto\\services\\UserInitialsPhotoService"
+        },
+        "class": "hashtagerrors\\userinitialsphoto\\UserInitialsPhoto"
+    }
+}
