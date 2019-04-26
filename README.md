@@ -38,7 +38,11 @@ Whichever found first will be used as the initials.
 
 ## Using User Initials Photo
 
-No Configuration, No Code needed. Just Install and you are ready to go ! Just make sure a volume is assigned in `User Photo Location` in your User Settings. 
+To use the plugin make sure a volume is assigned in `User Photo Location` in your User Settings. 
+By default the plugin assings Photos to new user only. To assign photos to old users too, uncheck `Assign Images to New User Only` in Plugin Setting page.
+To assign photos to all Users at once, Go to plugin section page and click `Assign`.
+
+NOTE: If you are updating plugin from `v1.0.0` to `v1.1.0` you must have to do a `composer remove hashtagerrors/hashtagerror/user-initials-photo` and then `composer require hashtagerror/user-initials-photo` to get plugin setting and section page.
 
 ## User Initials Photo Roadmap
 

@@ -18,7 +18,7 @@ use craft\base\Model;
 /**
  * @author    Hashtag Errors
  * @package   UserInitialsPhoto
- * @since     1.0.0
+ * @since     1.1.0
  */
 class Settings extends Model
 {
