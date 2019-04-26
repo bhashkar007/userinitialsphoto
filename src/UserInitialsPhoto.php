@@ -11,13 +11,17 @@
 namespace hashtagerrors\userinitialsphoto;
 
 use hashtagerrors\userinitialsphoto\services\UserInitialsPhotoService;
+use hashtagerrors\userinitialsphoto\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
 use craft\services\Elements;
 use craft\elements\User;
+use craft\web\UrlManager;
 use craft\services\Plugins;
 use craft\events\PluginEvent;
+use craft\events\RegisterUrlRulesEvent;
+
 
 use yii\base\Event;
 
@@ -68,11 +72,25 @@ class UserInitialsPhoto extends Plugin
             }
         );
 
-        Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function(Event $event) {
-            if ($event->element instanceof User && $event->isNew) {
-                $element = $event->element;
-                UserInitialsPhoto::$plugin->userInitialsPhotoService->assignPhoto($element);
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_CP_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules['cpActionTrigger'] = 'user-initials-photo/default/assign-photo';
             }
+        );
+
+        Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function(Event $event) {
+            if($event->element instanceof User){
+                $forNewUsersOnly = UserInitialsPhoto::$plugin->getSettings()->newUsersOnly;
+                $element = $event->element;
+                $isNew = $event->isNew;
+                if (!$forNewUsersOnly){ $isNew = 1; }
+                    if($isNew){
+                        $element = $event->element;
+                        UserInitialsPhoto::$plugin->userInitialsPhotoService->assignPhoto($element);
+                    }
+                }
         });
 
         //
@@ -88,5 +106,26 @@ class UserInitialsPhoto extends Plugin
 
     // Protected Methods
     // =========================================================================
+
+    /**
+     * @inheritdoc
+     */
+    protected function createSettingsModel()
+    {
+        return new Settings();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function settingsHtml(): string
+    {
+        return Craft::$app->view->renderTemplate(
+            'user-initials-photo/settings',
+            [
+                'settings' => $this->getSettings()
+            ]
+        );
+    }
 
 }

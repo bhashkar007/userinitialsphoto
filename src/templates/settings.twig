@@ -1,0 +1,29 @@
+{#
+/**
+ * User Initials Photo plugin for Craft CMS 3.x
+ *
+ * User Initials Photo Settings.twig
+ *
+ * @author    Hashtag Errors
+ * @copyright Copyright (c) 2019 Hashtag Errors
+ * @link      http://www.hashtagerrors.com
+ * @package   UserInitialsPhoto
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.checkboxField({
+    label: 'Assign Images to New User Only',
+    instructions: 'If checked. images will be assigned to New Users Only.',
+    id: 'newUsersOnly',
+    name: 'newUsersOnly',
+    value: 1,
+    checked: settings.newUsersOnly,
+    errors: settings.getErrors('newUsersOnly')})
+}}
+
+<form action="">
+	<input type="submit" class="btn" value="abc">
+</form>

@@ -1,0 +1,39 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * User Initials Photo plugin for Craft CMS 3.x
+ *
+ * User Initials Photo Settings.twig
+ *
+ * @author    Hashtag Errors
+ * @copyright Copyright (c) 2019 Hashtag Errors
+ * @link      http://www.hashtagerrors.com
+ * @package   UserInitialsPhoto
+ * @since     1.0.0
+ */
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% set docsUrl = "https://github.com/hashtagerrors/user-initials-photo/blob/master/README.md" %}
+
+{% set title = "User Initials Photo" %}
+
+{% set pluginCpUrl = url('user-initials-photo') %}
+
+{% set content %}
+    <h2>{{ "Assign Photos to all users"|t('user-initials-photo') }}</h2>
+    <p class="textline"></p>
+    <form method="POST">
+    	<input type="hidden" name="action" value="user-initials-photo/default/assign-photo">
+    	{{ csrfInput() }}
+		{{ forms.checkboxField({
+		    label: 'Overwrite images of old users',
+		    id: 'ow-cbox',
+		    name: 'ui-overwrite',
+		    value: 1})
+		}}
+    	<input type="submit" class="btn submit" value="Assign">
+    </form>
+{% endset %}

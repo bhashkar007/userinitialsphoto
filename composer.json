@@ -32,7 +32,7 @@
     "extra": {
         "name": "User Initials Photo",
         "handle": "user-initials-photo",
-        "hasCpSettings": false,
+        "hasCpSettings": true,
         "hasCpSection": false,
         "changelogUrl": "https://raw.githubusercontent.com/hashtagerror/user-initials-photo/master/CHANGELOG.md",
         "components": {

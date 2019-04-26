@@ -9,10 +9,11 @@
  */
 
 namespace hashtagerrors\userinitialsphoto\services;
-
+use hashtagerrors\userinitialsphoto\jobs\AssignPhotoTask;
 use hashtagerrors\userinitialsphoto\UserInitialsPhoto;
 
 use Craft;
+use craft\elements\User;
 use craft\base\Component;
 
 /**
@@ -31,10 +32,14 @@ class UserInitialsPhotoService extends Component
 
     public function assignPhoto($element)
     {
-        $imageUrl = $this->generatePhoto($element);
         $id = $element->id;
         $users = Craft::$app->getUsers();
         $user = $users->getUserById($id);
+        // If user already has a photo do nothing
+        if($user->getPhoto()){
+            return true;
+        }
+        $imageUrl = $this->generatePhoto($element);
         $email = $user->email;
         $filename = strstr($email, '@', true).'.png';
         $fileLocation = Craft::$app->getPath()->getTempPath() . DIRECTORY_SEPARATOR . $filename;
@@ -44,15 +49,34 @@ class UserInitialsPhotoService extends Component
         return true;
     }
 
+    public function assignPhotos($overwrite)
+    {
+        $users = User::find()->anyStatus();
+        foreach ($users as $user) {
+            if(!$overwrite){
+                if(!$user->getPhoto()){
+                    Craft::$app->getQueue()->delay(0)->push(new AssignPhotoTask([
+                        'user' => $user
+                    ]));
+                }
+            }else{
+                 Craft::$app->getQueue()->delay(0)->push(new AssignPhotoTask([
+                    'user' => $user
+                ]));
+            }
+        }
+        return true;
+    }
+
     public function generatePhoto($element)
     {
-        $firstName = $element->firstName;
-        $lastName  = $element->lastName;
-        $username  = $element->username;
-        $email     = $element->email;
+        $firstName = strtoupper(urlencode($element->firstName));
+        $lastName  = strtoupper(urlencode($element->lastName));
+        $username  = strtoupper(urlencode($element->username));
+        $email     = strtoupper(urlencode($element->email));
 
         $name = $email;
-        $size = 128;
+        $size = 256;
         $background = $this->getRandomBG();
         $color = 'fff';
         $length = 1;
