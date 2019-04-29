@@ -32,20 +32,21 @@ class UserInitialsPhotoService extends Component
 
     public function assignPhoto($element)
     {
-        $id = $element->id;
+        $newUser = $element;
+        $id = $newUser->id;
         $users = Craft::$app->getUsers();
-        $user = $users->getUserById($id);
+        $existingUser = $users->getUserById($id);
         // If user already has a photo do nothing
-        if($user->getPhoto()){
+        if ($existingUser && $existingUser->getPhoto()){
             return true;
         }
-        $imageUrl = $this->generatePhoto($element);
-        $email = $user->email;
+        $imageUrl = $this->generatePhoto($newUser);
+        $email = $newUser->email;
         $filename = strstr($email, '@', true).'.png';
         $fileLocation = Craft::$app->getPath()->getTempPath() . DIRECTORY_SEPARATOR . $filename;
         $fileContents = file_get_contents($imageUrl);
         file_put_contents($fileLocation, $fileContents);
-        $users->saveUserPhoto($fileLocation, $user, $filename);
+        $users->saveUserPhoto($fileLocation, $newUser, $filename);
         return true;
     }
 
