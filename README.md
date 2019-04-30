@@ -42,7 +42,7 @@ To use the plugin make sure a volume is assigned in `User Photo Location` in you
 By default the plugin assings Photos to new user only. To assign photos to old users too, uncheck `Assign Images to New User Only` in Plugin Setting page.
 To assign photos to all Users at once, Go to plugin section page and click `Assign`.
 
-NOTE: If you are updating plugin from `v1.0.0` to `v1.1.0` you must have to do a `composer remove hashtagerrors/hashtagerror/user-initials-photo` and then `composer require hashtagerror/user-initials-photo` to get plugin setting and section page.
+NOTE: If you are updating plugin from `v1.0.0` to `v1.1.0` or above you must have to do a `composer remove hashtagerrors/hashtagerror/user-initials-photo` and then `composer require hashtagerror/user-initials-photo` to get plugin setting and section page.
 
 ## User Initials Photo Roadmap
 
