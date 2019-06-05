@@ -3,7 +3,7 @@
 
 A plugin to assign profile picture of user with their name initials.
 
-<img src="https://ui-avatars.com/assets/promo.png">
+<img src="https://ui-avatars.com/assets/promo-new.png">
 
 *Image via [[https://ui-avatars.com](https://ui-avatars.com)]*
 
