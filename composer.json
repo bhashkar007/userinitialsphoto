@@ -33,7 +33,7 @@
         "name": "User Initials Photo",
         "handle": "user-initials-photo",
         "hasCpSettings": true,
-        "hasCpSection": false,
+        "hasCpSection": true,
         "changelogUrl": "https://raw.githubusercontent.com/hashtagerror/user-initials-photo/master/CHANGELOG.md",
         "components": {
             "userInitialsPhotoService": "hashtagerrors\\userinitialsphoto\\services\\UserInitialsPhotoService"
