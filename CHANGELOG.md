@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.2 - 2019-04-30
+### Fixed
+- hasCpSection value changed to true. 
+
 ## 1.1.1 - 2019-04-30
 ### Fixed
 - A bug where new user accounts couldn't be activated because they lose their unverified email value. 
