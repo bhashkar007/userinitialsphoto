@@ -21,7 +21,7 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require hashtagerror/user-initials-photo
+        composer require hashtagerrors/user-initials-photo
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for **User Initials Photo**.
 
