@@ -1,42 +1,28 @@
 <?php
 /**
- * User Initials Photo plugin for Craft CMS 3.x
- *
+ * User Initials Photo plugin for Craft CMS 4.x
  * A plugin to assign profile picture of user with their name initials.
- *
- * @link      http://www.hashtagerrors.com
- * @copyright Copyright (c) 2019 Hashtag Errors
+ * @link      https://360adaptive.com
+ * @copyright Copyright (c) 2023 360Adaptive Technologies
  */
 
-namespace hashtagerrors\userinitialsphoto\jobs;
+namespace bhashkar007\userinitialsphoto\jobs;
 
-use hashtagerrors\userinitialsphoto\UserInitialsPhoto;
+use bhashkar007\userinitialsphoto\UserInitialsPhoto;
 
 use Craft;
 use craft\queue\BaseJob;
 
 /**
- * @author    Hashtag Errors
+ * @author    360Adaptive Technologies
  * @package   UserInitialsPhoto
- * @since     1.1.0
+ * @since     2.0.0
  */
 class AssignPhotoTask extends BaseJob
 {
-    // Public Properties
-    // =========================================================================
-
-    /**
-     * @var string
-     */
     public $user;
 
-    // Public Methods
-    // =========================================================================
-
-    /**
-     * @inheritdoc
-     */
-    public function execute($queue)
+    public function execute($queue): void
     {
         $errors = [];
 
@@ -58,12 +44,6 @@ class AssignPhotoTask extends BaseJob
         }
     }
 
-    // Protected Methods
-    // =========================================================================
-
-    /**
-     * @inheritdoc
-     */
     protected function defaultDescription(): string
     {
         return Craft::t('user-initials-photo', 'Assigning photo to {name}.', [ 'name' => $this->user->name]);

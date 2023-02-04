@@ -1,8 +1,8 @@
 {
-    "name": "hashtagerrors/user-initials-photo",
+    "name": "bhashkar007/user-initials-photo",
     "description": "A plugin to assign profile picture of user with their name initials.",
     "type": "craft-plugin",
-    "version": "1.1.1",
+    "version": "2.0.0",
     "keywords": [
         "craft",
         "cms",
@@ -11,22 +11,22 @@
         "user initials photo"
     ],
     "support": {
-        "docs": "https://github.com/hashtagerror/user-initials-photo/blob/master/README.md",
-        "issues": "https://github.com/hashtagerror/user-initials-photo/issues"
+        "docs": "https://github.com/bhashkar007/user-initials-photo/blob/master/README.md",
+        "issues": "https://github.com/bhashkar007/user-initials-photo/issues"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": "Hashtag Errors",
-            "homepage": "http://www.hashtagerrors.com"
+            "name": "360Adaptive Technologies",
+            "homepage": "https://360adaptive.com"
         }
     ],
     "require": {
-        "craftcms/cms": "^3.0.0"
+        "craftcms/cms": "^4.0.0"
     },
     "autoload": {
         "psr-4": {
-          "hashtagerrors\\userinitialsphoto\\": "src/"
+          "bhashkar007\\userinitialsphoto\\": "src/"
         }
     },
     "extra": {
@@ -34,10 +34,10 @@
         "handle": "user-initials-photo",
         "hasCpSettings": true,
         "hasCpSection": true,
-        "changelogUrl": "https://raw.githubusercontent.com/hashtagerror/user-initials-photo/master/CHANGELOG.md",
+        "changelogUrl": "https://raw.githubusercontent.com/bhashkar007/user-initials-photo/master/CHANGELOG.md",
         "components": {
-            "userInitialsPhotoService": "hashtagerrors\\userinitialsphoto\\services\\UserInitialsPhotoService"
+            "userInitialsPhotoService": "bhashkar007\\userinitialsphoto\\services\\UserInitialsPhotoService"
         },
-        "class": "hashtagerrors\\userinitialsphoto\\UserInitialsPhoto"
+        "class": "bhashkar007\\userinitialsphoto\\UserInitialsPhoto"
     }
 }

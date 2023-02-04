@@ -1,35 +1,26 @@
 <?php
 /**
- * User Initials Photo plugin for Craft CMS 3.x
- *
+ * User Initials Photo plugin for Craft CMS 4.x
  * A plugin to assign profile picture of user with their name initials.
- *
- * @link      http://www.hashtagerrors.com
- * @copyright Copyright (c) 2019 Hashtag Errors
+ * @link      https://360adaptive.com
+ * @copyright Copyright (c) 2023 360Adaptive Technologies
  */
 
-namespace hashtagerrors\userinitialsphoto\services;
-use hashtagerrors\userinitialsphoto\jobs\AssignPhotoTask;
-use hashtagerrors\userinitialsphoto\UserInitialsPhoto;
+namespace bhashkar007\userinitialsphoto\services;
+use bhashkar007\userinitialsphoto\jobs\AssignPhotoTask;
+use bhashkar007\userinitialsphoto\UserInitialsPhoto;
 
 use Craft;
 use craft\elements\User;
 use craft\base\Component;
 
 /**
- * @author    Hashtag Errors
+ * @author    360Adaptive Technologies
  * @package   UserInitialsPhoto
- * @since     1.0.0
+ * @since     2.0.0
  */
 class UserInitialsPhotoService extends Component
 {
-    // Public Methods
-    // =========================================================================
-
-    /*
-     * @return mixed
-     */
-
     public function assignPhoto($element)
     {
         $newUser = $element;
@@ -105,6 +96,5 @@ class UserInitialsPhotoService extends Component
         $colorArr = ['006ba6','00a896','00cfc1','011627','028090','02c39a','04859b','0496ff','05668d','06d6a0','0b032d','1a535c','1be7ff','1d3557','247ba0','264653','26547c','2a9d8f','2b0504','2b2d42','2ec4b6','2ec4b6','38303f','410458','457b9d','4ecdc4','50514f','69a197','6d6875','6eeb83','70c1b3','74546a','843b62','8acb88','8d99ae','8f2d56','a8dadc','aa1911','b5838d','bbbbbb','bc5f04','bfae48','ceae88','d81159','d90429','e53d00','e5989b','e63946','e71d36','e76f51','e8aa14','e9ce2c','ef233c','ef476f','f0a202','f25f5c','f4442e','f4a261','f67e7d','fd5200','fe621d','ff1654','ff5a5f','ff6600','ff6b6b','ff9f1c','ffb4a2','ffb997','ffbc42'];
         $randKey = array_rand($colorArr);
         return $colorArr[$randKey];
-
     }
 }

@@ -1,42 +1,28 @@
 <?php
 /**
- * User Initials Photo plugin for Craft CMS 3.x
- *
+ * User Initials Photo plugin for Craft CMS 4.x
  * A plugin to assign profile picture of user with their name initials.
- *
- * @link      http://www.hashtagerrors.com
- * @copyright Copyright (c) 2019 Hashtag Errors
+ * @link      https://360adaptive.com
+ * @copyright Copyright (c) 2023 360Adaptive Technologies
  */
 
-namespace hashtagerrors\userinitialsphoto\models;
+namespace bhashkar007\userinitialsphoto\models;
 
-use hashtagerrors\userinitialsphoto\UserInitialsPhoto;
+use bhashkar007\userinitialsphoto\UserInitialsPhoto;
 
 use Craft;
 use craft\base\Model;
 
 /**
- * @author    Hashtag Errors
+ * @author    360Adaptive Technologies
  * @package   UserInitialsPhoto
- * @since     1.1.0
+ * @since     2.0.0
  */
 class Settings extends Model
 {
-    // Public Properties
-    // =========================================================================
-
-    /**
-     * @var string
-     */
     public $newUsersOnly = '1';
 
-    // Public Methods
-    // =========================================================================
-
-    /**
-     * @inheritdoc
-     */
-    public function rules()
+    public function rules(): Array
     {
         return [
             ['newUsersOnly', 'string']

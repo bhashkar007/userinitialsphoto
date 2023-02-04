@@ -1,17 +1,15 @@
 <?php
 /**
- * User Initials Photo plugin for Craft CMS 3.x
- *
+ * User Initials Photo plugin for Craft CMS 4.x
  * A plugin to assign profile picture of user with their name initials.
- *
- * @link      http://www.hashtagerrors.com
- * @copyright Copyright (c) 2019 Hashtag Errors
+ * @link      https://360adaptive.com
+ * @copyright Copyright (c) 2023 360Adaptive Technologies
  */
 
-namespace hashtagerrors\userinitialsphoto;
+namespace bhashkar007\userinitialsphoto;
 
-use hashtagerrors\userinitialsphoto\services\UserInitialsPhotoService;
-use hashtagerrors\userinitialsphoto\models\Settings;
+use bhashkar007\userinitialsphoto\services\UserInitialsPhotoService;
+use bhashkar007\userinitialsphoto\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -21,43 +19,23 @@ use craft\web\UrlManager;
 use craft\services\Plugins;
 use craft\events\PluginEvent;
 use craft\events\RegisterUrlRulesEvent;
-
-
 use yii\base\Event;
 
 /**
  * Class UserInitialsPhoto
  *
- * @author    Hashtag Errors
+ * @author    360Adaptive Technologies
  * @package   UserInitialsPhoto
- * @since     1.0.0
+ * @since     2.0.0
  *
  * @property  UserInitialsPhotoServiceService $userInitialsPhotoService
  */
 class UserInitialsPhoto extends Plugin
 {
-    // Static Properties
-    // =========================================================================
-
-    /**
-     * @var UserInitialsPhoto
-     */
     public static $plugin;
 
-    // Public Properties
-    // =========================================================================
+    public string $schemaVersion = '2.0.0';
 
-    /**
-     * @var string
-     */
-    public $schemaVersion = '1.0.0';
-
-    // Public Methods
-    // =========================================================================
-
-    /**
-     * @inheritdoc
-     */
     public function init()
     {
         parent::init();
@@ -93,7 +71,6 @@ class UserInitialsPhoto extends Plugin
                 }
         });
 
-        //
         Craft::info(
             Craft::t(
                 'user-initials-photo',
@@ -104,20 +81,11 @@ class UserInitialsPhoto extends Plugin
         );
     }
 
-    // Protected Methods
-    // =========================================================================
-
-    /**
-     * @inheritdoc
-     */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?\craft\base\Model
     {
         return new Settings();
     }
 
-    /**
-     * @inheritdoc
-     */
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
@@ -127,5 +95,4 @@ class UserInitialsPhoto extends Plugin
             ]
         );
     }
-
 }

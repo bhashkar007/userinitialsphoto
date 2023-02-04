@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.0.0 - 2023-02-04
+### Added
+- Craft 4 support
+
 ## 1.1.2 - 2019-04-30
 ### Fixed
 - hasCpSection value changed to true. 
