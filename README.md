@@ -1,5 +1,5 @@
 
-# User Initials Photo plugin for Craft CMS 3.x
+# User Initials Photo plugin for Craft CMS 4.x
 
 A plugin to assign profile picture of user with their name initials.
 
